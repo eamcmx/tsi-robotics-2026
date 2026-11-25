@@ -116,7 +116,7 @@ var steel=std(0xaeb8c4,.3,.9), iron=std(0x232a34,.6,.5), dark=std(0x161b23,.55,.
     build:function(g){u.floor(g,{op:.28});
       var rib=at(box(27,.06,1.3,std(0x15263c,.7,.1)),0,.03,0);rib.receiveShadow=true;g.add(rib);
       var pts=[];for(var i=0;i<=60;i++)pts.push(V(-13.5+27*i/60,.07,0));var ln=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineDashedMaterial({color:0x6fb8ff,dashSize:.45,gapSize:.35}));ln.computeLineDistances();g.add(ln);
-      EV.forEach(function(e,i){var p=new THREE.Group(),m=glow(COL[i],.35);p.add(at(sph(.42,m),0,1.15,0));var c=new THREE.Mesh(new THREE.ConeGeometry(.3,.8,24),m);c.rotation.x=PI;c.position.y=.48;p.add(c);p.position.set(e[0],0,0);g.add(p);pins.push(p);
+      EV.forEach(function(e,i){var p=new THREE.Group(),m=glow(COL[i],.35);var rg=new THREE.Mesh(new THREE.TorusGeometry(.5,.06,10,48),m);rg.rotation.x=PI/2;rg.position.y=.11;p.add(rg);p.add(at(cyl(.2,.05,m),0,.1,0));p.position.set(e[0],0,0);g.add(p);pins.push(p);
         RX.label('<b>'+e[1]+'</b><span>'+e[2]+'</span>','tlc',V(e[0],0,1.5),['tl'],{});
         var ic=new THREE.Group();ic.position.set(e[0],0,-2.8);g.add(ic);icons.push(ic);});
       var fw=new THREE.Group();fw.position.y=1.5;icons[0].add(fw);fw.add(new THREE.Mesh(new THREE.TorusGeometry(1.0,.1,12,48),iron));fw.add(cyl(.16,.3,brass,'z'));for(var s=0;s<6;s++){var sp=box(.07,1.9,.07,iron);sp.rotation.z=s*PI/6;fw.add(sp);}
