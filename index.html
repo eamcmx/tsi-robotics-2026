@@ -726,7 +726,7 @@ RX.hooks['s-r4']={key:function(k){var t=$$('#s-r4 .vt')[+k-1];if(t){t.click();re
 /* Jacquard cards */
 var W=10,H=8,cells=[],cloth=[],grid=$('#jq-grid'),cl=$('#jq-cloth'),bits=$('#jq-bits');
 var PAT={heart:['0110001100','1111011110','1111111110','1111111110','0111111100','0011111000','0001110000','0000100000'],
-  tsi:['0000000000','1110101110','0100101000','0100101110','0100100010','0100101110','0000000000','0000000000'],
+  tsi:['0000000000','1110111010','0100100010','0100111010','0100001010','0100111010','0000000000','0000000000'],
   diamond:['0000110000','0001111000','0011111100','0111111110','0111111110','0011111100','0001111000','0000110000'],clear:[]};
 function paint(){for(var i=0;i<W*H;i++){cells[i].el.classList.toggle('h',cells[i].on);cloth[i].classList.toggle('h',cells[i].on);}var b='';for(var c=0;c<W;c++)b+=cells[c].on?'1':'0';bits.textContent=b;}
 for(var i=0;i<W*H;i++){(function(i){var e=document.createElement('i');grid.appendChild(e);var o={el:e,on:false};cells.push(o);e.addEventListener('click',function(){o.on=!o.on;paint();});var c=document.createElement('i');cl.appendChild(c);cloth.push(c);})(i);}
