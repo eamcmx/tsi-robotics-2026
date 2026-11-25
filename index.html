@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Robots: how did we get here? · TSI</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/deck.css">
+<style>
+.vhead{position:absolute;left:258px;top:112px;right:258px;font-size:30px;font-weight:800;display:flex;justify-content:space-between;align-items:baseline}
+.vhead small{font-size:21px;color:var(--mute);font-weight:700}
+.vid.big{left:258px;top:166px;width:1404px;height:790px}
+.pill9{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:1180px}
+.stmt{font-size:76px;line-height:1.1;font-weight:800;letter-spacing:-1.5px;max-width:1500px;margin:0 0 50px}
+.flow{display:flex;gap:18px;align-items:stretch}
+.flow .card{flex:1;padding:24px 28px}
+.flow .card b.y{display:block;font-size:22px;color:var(--or);letter-spacing:2px;margin-bottom:6px}
+.flow .card h3{font-size:36px;margin-bottom:6px}
+.flow .card p{font-size:24px}
+.flow .arr{align-self:center;font-size:44px;color:var(--or);font-weight:800}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.who{gap:26px}
+.who .card{padding:34px 40px;min-height:270px}
+.who .card h3{font-size:42px;margin-bottom:16px}
+.who .card p{font-size:31px;line-height:1.38}
+.hcard{position:absolute;left:120px;top:330px;width:800px}
+.race .bar{grid-template-columns:420px 1fr}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="shadeL"></div><div id="shade"></div>
+<div id="labels"></div>
+<div id="stage">
+  <img id="logo" src="assets/img/tsi_logo_en_white.svg" alt="TSI">
+  <div id="tag">Introduction to Robotics</div>
+
+  <!-- ============ OPENING ============ -->
+  <section class="slide" id="s-title" data-view="evoNear" data-sec="Opening" data-part="0" data-t="0 to 1">
+    <div class="col" style="width:1000px;top:190px">
+      <p class="kicker rise">Transport and Telecommunication Institute</p>
+      <h1 class="rise">Robots:<br>how did we<br><em>get here?</em></h1>
+      <p class="lead rise">From clockwork dolls to machines that learn.<br>And where you fit in.</p>
+      <p class="by rise"><b>Prof. Emmanuel A. Merchán-Cruz</b><br>TSI, Riga</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 0 to 1</p><p><b>OPEN</b> Nothing. Press F for full screen. Press n for this notes window.</p><p><b>SAY</b> "For the next 90 minutes we follow one question: who does the work, and who tells the machine what to do? Behind me the same points of light build four machines: a writing doll from 1774, the first factory robot from 1961, the six-axis arm of today and a humanoid from this year. By the end you will know what changed from each one to the next."</p><p><b>DO</b> Let the four machines cycle while people sit down. Each stays about five seconds. Drag with the mouse to turn the scene.</p></aside>
+  </section>
+
+  <section class="slide" id="s-poll" data-view="heroDim" data-sec="Opening" data-part="0" data-t="1 to 3">
+    <p class="kicker rise">Hands up</p>
+    <h2 class="rise">Which of these is a robot?</h2>
+    <div class="poll">
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="5"/><circle cx="32" cy="36" r="13"/><circle cx="20" cy="14" r="2"/><line x1="28" y1="14" x2="44" y2="14"/></svg><h3>A washing machine</h3><p>It runs a programme by itself.</p></div>
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><circle cx="14" cy="14" r="8"/><circle cx="50" cy="14" r="8"/><circle cx="14" cy="50" r="8"/><circle cx="50" cy="50" r="8"/><line x1="20" y1="20" x2="44" y2="44"/><line x1="44" y1="20" x2="20" y2="44"/><rect x="26" y="26" width="12" height="12" rx="3"/></svg><h3>A drone flown by remote control</h3><p>A person steers it with two sticks.</p></div>
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="24" r="7"/><line x1="14" y1="44" x2="50" y2="44"/></svg><h3>A robot vacuum cleaner</h3><p>It maps the flat and cleans it alone.</p></div>
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><path d="M8 12h48v30H30l-12 12V42H8z"/><circle cx="22" cy="27" r="2"/><circle cx="32" cy="27" r="2"/><circle cx="42" cy="27" r="2"/></svg><h3>A chatbot</h3><p>It answers questions and writes code.</p></div>
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><rect x="8" y="50" width="26" height="8" rx="2"/><polyline points="21,50 21,30 44,14 54,24"/><circle cx="21" cy="30" r="4"/><circle cx="44" cy="14" r="4"/><line x1="54" y1="24" x2="50" y2="32"/><line x1="54" y1="24" x2="60" y2="30"/></svg><h3>A welding arm in a car factory</h3><p>It repeats the same path all day.</p></div>
+      <div class="card pc rise"><svg viewBox="0 0 64 64"><circle cx="32" cy="14" r="8"/><path d="M20 58V34c0-6 5-10 12-10s12 4 12 10v24"/><line x1="44" y1="38" x2="58" y2="44"/><line x1="58" y1="44" x2="60" y2="54"/><circle cx="12" cy="46" r="6"/><line x1="12" y1="36" x2="12" y2="40"/></svg><h3>A writing doll from 1774</h3><p>Clockwork makes it write a sentence.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 1 to 3</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Hands up if you think it is a robot. Washing machine? Remote-control drone? Robot vacuum? Chatbot? Welding arm? The writing doll?" Then: "Remember your votes. We vote again in half an hour, with a definition."</p><p><b>DO</b> Count the hands for each card out loud and write the six numbers on the board. Do not give the answers yet. The verdicts come on slide 19.</p></aside>
+  </section>
+
+  <section class="slide" id="s-route" data-view="heroDim" data-sec="Opening" data-part="0" data-t="3 to 4">
+    <p class="kicker rise">The next 90 minutes</p>
+    <h2 class="rise">Seven stops</h2>
+    <div class="g4" style="grid-template-columns:repeat(4,1fr);margin-top:20px">
+      <div class="card rise"><h3><small>Stop 1</small>Before robots</h3><p>Automata, cams and punched cards.</p></div>
+      <div class="card rise"><h3><small>Stop 2</small>Four revolutions</h3><p>Steam, electricity, computers, networks.</p></div>
+      <div class="card rise"><h3><small>Stop 3</small>What is a robot?</h3><p>A definition, the parts, the families.</p></div>
+      <div class="card rise"><h3><small>Stop 4</small>Robots in numbers</h3><p>Where the world's robots work in 2026.</p></div>
+      <div class="card rise"><h3><small>Stop 5</small>Robots 4.0</h3><p>Cyber-physical systems, twins, cobots.</p></div>
+      <div class="card rise"><h3><small>Stop 6</small>Robots that learn</h3><p>AI gets a body. Humanoids in 2026.</p></div>
+      <div class="card rise"><h3><small>Stop 7</small>Industry 5.0 and you</h3><p>Jobs, skills and your programme.</p></div>
+      <div class="card rise" style="border-color:var(--or)"><h3><small>All the way</small>Ask</h3><p>Stop me at any time. The demos are live.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 3 to 4</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Seven stops. The first two are history, about 25 minutes. Then what a robot is, the numbers for 2026, and the two changes of the last three years: robots that learn, and factories built around people. We finish with what this means for your own programme."</p><p><b>DO</b> Point at stop 6 and say this is the part that did not exist when this talk was first given.</p></aside>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="slide opener" id="s-p1" data-view="evo" data-sec="1 · Before robots" data-part="1" data-t="4 to 4.5">
+    <div class="col" style="top:170px">
+      <p class="n rise">1</p>
+      <h2 class="rise">Machines that move<br>by themselves</h2>
+      <p class="lead rise">Automata, from the year 60 to 1800.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 4 to 4.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Long before factories, people built machines that moved alone. The figure behind me stands for them: a clockwork doll at a writing desk. In two minutes you see the mechanism that moves its hand."</p><p><b>DO</b> Move on quickly.</p></aside>
+  </section>
+
+  <section class="slide" id="s-auto" data-view="camDim" data-sec="1 · Before robots" data-part="1" data-t="4.5 to 7.5">
+    <div class="col" style="width:820px">
+      <p class="kicker rise">Automata</p>
+      <h2 class="rise">2,000 years of self-moving machines</h2>
+      <ul class="years rise">
+        <li><i>c. 60</i><b>Heron of Alexandria:</b> temple doors that open alone, a theatre that plays a story by itself</li>
+        <li><i>1206</i><b>Al-Jazari:</b> water clocks and a drummer driven by a drum of pegs. Move the pegs, change the rhythm</li>
+        <li><i>c. 1495</i><b>Leonardo da Vinci:</b> sketches of a mechanical knight moved by cables</li>
+        <li><i>1770s</i><b>Jaquet-Droz, The Writer:</b> a doll that writes any text of up to 40 characters</li>
+      </ul>
+    </div>
+    <div class="vid right" data-main data-src="videos/automatons.mp4" data-title="Automata of the 1500s to 1700s" data-len="0:33"></div>
+    <aside class="notes"><p class="t">Minute 4.5 to 7.5</p><p><b>OPEN</b> The video on the right (33 seconds, your own clip). The next click starts it.</p><p><b>SAY</b> "Heron's machines used ropes and falling weights. Al-Jazari's drummer is the first machine I know whose behaviour you could change without rebuilding it: you moved the pegs. Six hundred years later a Swiss watchmaker built a doll that writes with a quill. It still works, in a museum in Neuchâtel." After the video: "Who was controlling the doll while it wrote?" Expected answer: nobody, the motion is stored inside it.</p><p><b>DO</b> Press next once to play the video. Press next again to move on. K pauses.</p></aside>
+  </section>
+
+  <section class="slide" id="s-cam" data-view="cam" data-sec="1 · Before robots" data-part="1" data-t="7.5 to 9.5">
+    <div class="col" style="width:760px">
+      <p class="kicker rise">How the doll knows what to write</p>
+      <h2 class="rise">The program is<br>the shape of the cam</h2>
+      <p class="rise">One cam pushes the pen sideways. The other pushes it up and down. Change the two cams and the same machine draws a new figure.</p>
+      <div class="btns rise"><button class="btn on" data-shape="circle">1 Circle</button><button class="btn" data-shape="eight">2 Figure 8</button><button class="btn" data-shape="star">3 Star</button><button class="btn" data-shape="heart">4 Heart</button></div>
+      <p class="note rise">A simplified model with two cams. The Writer uses a stack of cams, three for each letter.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 7.5 to 9.5</p><p><b>OPEN</b> The four buttons, or keys 1 to 4. Each one cuts two new cams.</p><p><b>SAY</b> "Look at the two brass discs. They are not round. Each bump lifts a rod, and the rods move the pen. Circle: both cams are plain eccentrics." Click Star. "Now the cams have five bumps. Same machine, new drawing. So where is the program?" Expected answer: in the shape of the cams. "A cam is a memory made of metal. To change the program you file a new cam."</p><p><b>DO</b> Click Circle, then Star, then Heart. Wait one full turn each time so the class sees the figure close. Drag the scene to show the cams from the side.</p></aside>
+  </section>
+
+  <section class="slide" id="s-jq" data-view="camDim" data-sec="1 · Before robots" data-part="1" data-t="9.5 to 11">
+    <p class="kicker rise">1804 · Joseph-Marie Jacquard</p>
+    <h2 class="rise">A program you can swap: punched cards</h2>
+    <div class="jq rise">
+      <div><h3>The cards: click to punch</h3><div class="grid hit" id="jq-grid"></div></div>
+      <div><h3>The cloth</h3><div class="cloth" id="jq-cloth"></div></div>
+      <div style="width:520px">
+        <p style="font-size:29px">Each row is one card. A hole lifts one thread, so the gold thread shows on top.</p>
+        <p style="font-size:29px"><b>Hole or no hole: 1 or 0.</b> Swap the cards and the same loom weaves a new cloth.</p>
+        <div class="btns"><button class="btn" data-jq="heart">Heart</button><button class="btn" data-jq="tsi">TSI</button><button class="btn" data-jq="diamond">Diamond</button><button class="btn" data-jq="clear">Clear</button></div>
+        <p class="note">Row 1 as bits: <b id="jq-bits" style="font-family:Consolas,monospace;letter-spacing:2px">0000000000</b></p>
+      </div>
+    </div>
+    <aside class="notes"><p class="t">Minute 9.5 to 11</p><p><b>OPEN</b> The card grid on the left. Click any circle to punch or close a hole. The buttons load a ready pattern.</p><p><b>SAY</b> "A cam is hard to change. In 1804 Jacquard put the program on cards. Each card is one row of the picture. Where there is a hole a hook passes and lifts a thread." Click Heart. "The loom has not changed. Only the cards." Click TSI. "Charles Babbage copied this idea for his Analytical Engine, and computers read punched cards until the 1970s."</p><p><b>DO</b> Click Heart, then TSI. Ask one student to call out holes for the first row and punch them. Read the bits under the buttons aloud.</p></aside>
+  </section>
+
+  <section class="slide" id="s-word" data-view="camDim" data-sec="1 · Before robots" data-part="1" data-t="11 to 14">
+    <div class="col" style="width:820px">
+      <p class="kicker rise">The word arrives before the machine</p>
+      <h2 class="rise">"Robot" starts<br>as fiction</h2>
+      <ul class="years rise">
+        <li><i>1921</i>Karel Čapek's play <b>R.U.R.</b> opens in Prague. "Robot" comes from the Czech <b>robota</b>, forced labour</li>
+        <li><i>1939</i>Westinghouse shows <b>Elektro</b> at the New York World's Fair. It walks, talks and smokes when its operator gives the word</li>
+        <li><i>1942</i>Isaac Asimov prints the <b>Three Laws of Robotics</b> in the story Runaround, and invents the word "robotics"</li>
+        <li><i>1961</i>The first industrial robot starts work</li>
+      </ul>
+    </div>
+    <div class="vid right" data-main data-src="videos/robots-1900s.mp4" data-title="Showpiece robots of the early 1900s" data-len="2:29"></div>
+    <aside class="notes"><p class="t">Minute 11 to 14</p><p><b>OPEN</b> The video on the right (2:29, your own clip). Play about the first 1:30.</p><p><b>SAY</b> "The word is 40 years older than the first working robot. Čapek's robots were artificial workers in a play. The machines in this film look like robots, but watch for what they cannot do." After the film: "Could Elektro decide anything by itself?" Expected answer: no, an operator triggered each action. "For the public, a robot was a metal man. For engineers it became something else, and that starts in a car factory."</p><p><b>DO</b> Press next to play. Stop after about 90 seconds with next.</p></aside>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="slide opener" id="s-p2" data-view="tl" data-sec="2 · Four revolutions" data-part="2" data-t="14 to 15">
+    <div class="col" style="top:130px;width:1400px">
+      <p class="kicker rise">Stop 2</p>
+      <h2 class="rise" style="font-size:66px;max-width:none">Robots and the industrial revolutions</h2>
+    </div>
+    <aside class="notes"><p class="t">Minute 14 to 15</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Historians count industrial revolutions. Each one answers our question in a new way. 1780: steam does the work. 1870: electricity, and the work is cut into small steps. 1970: a computer tells the machine what to do. 2011: the machines talk to each other. 2021 is not a new technology. It is a new purpose." The dates are labels. Old and new always overlap.</p><p><b>DO</b> Point at each pin from left to right as you name it.</p></aside>
+  </section>
+
+  <section class="slide" id="s-r1" data-view="govDim" data-sec="2 · Four revolutions" data-part="2" data-t="15 to 16.5">
+    <div class="col" style="width:800px">
+      <p class="kicker rise">First Industrial Revolution · about 1780</p>
+      <h2 class="rise">Steam and<br>mechanisation</h2>
+      <ul class="years rise">
+        <li><i>c. 1764</i>Spinning jenny: one worker spins many threads</li>
+        <li><i>1769</i>Water frame: spinning moves into mills, the first factories</li>
+        <li><i>1769-76</i>Watt's steam engine frees factories from rivers</li>
+        <li><i>1788</i>Watt's governor: the engine controls its own speed</li>
+      </ul>
+    </div>
+    <div class="vid right" data-main data-src="videos/rev1-steam.mp4" data-title="The First Industrial Revolution" data-len="0:17"></div>
+    <aside class="notes"><p class="t">Minute 15 to 16.5</p><p><b>OPEN</b> The video on the right (17 seconds, your own clip).</p><p><b>SAY</b> "Machines take over work that hands had done for centuries, first in making cloth. This is mechanisation: the machine supplies the force, a person still guides it. But one device from 1788 does something new, and it is on the next slide."</p><p><b>DO</b> Press next to play the short clip, then next again.</p></aside>
+  </section>
+
+  <section class="slide" id="s-gov" data-view="gov" data-sec="2 · Four revolutions" data-part="2" data-t="16.5 to 19">
+    <div class="col" style="width:760px">
+      <p class="kicker rise">1788 · James Watt</p>
+      <h2 class="rise">A machine that<br>watches itself</h2>
+      <p class="rise">Faster engine: the balls fly out, the sleeve rises, the valve closes. <b>Measure, compare, correct.</b> Every robot joint still runs this loop.</p>
+      <div class="rise">
+        <div class="ctl"><span>Engine load</span><input type="range" id="gov-load" min="40" max="200" value="100"><output>100%</output></div>
+        <div class="btns"><button class="btn on" data-gov="1">Governor on</button><button class="btn" data-gov="0">Governor off</button></div>
+        <div class="read"><div><span>Speed, rpm</span><b id="gov-rpm">120</b></div><div><span>Target</span><b style="color:var(--mute)">120</b></div><div><span>Steam valve</span><b id="gov-valve">50%</b></div></div>
+      </div>
+    </div>
+    <aside class="notes"><p class="t">Minute 16.5 to 19</p><p><b>OPEN</b> The slider "Engine load" and the two buttons.</p><p><b>SAY</b> "The mill wants 120 turns a minute. I take half the load away." Drag the slider to 50%. "The speed hardly moves: the balls flew out and closed the valve." Now click Governor off and repeat. "Without it the engine runs away to 240." Ask: "What three things does the governor do?" Expected answer: it measures the speed, compares it with what we want, and corrects the steam. "That is feedback control. Maxwell wrote the first theory of it in 1868, On Governors."</p><p><b>DO</b> 1. Governor on, load to 50%, read the speed (about 127). 2. Governor off, same load, read the speed (about 240). 3. Governor on again, load to 180%, read the valve (it opens wide).</p></aside>
+  </section>
+
+  <section class="slide" id="s-r2" data-view="line" data-sec="2 · Four revolutions" data-part="2" data-t="19 to 21.5">
+    <div class="col" style="width:800px">
+      <p class="kicker rise">Second Industrial Revolution · about 1870</p>
+      <h2 class="rise">Electricity and<br>mass production</h2>
+      <div class="facts rise" style="margin-top:8px">
+        <div class="fact"><b style="min-width:250px">1913</b><span>Ford starts the moving assembly line at Highland Park</span></div>
+        <div class="fact"><b style="min-width:250px">12.5 h</b><span>to build one chassis before the line</span></div>
+        <div class="fact"><b style="min-width:250px" class="or">93 min</b><span>to build one chassis a year later</span></div>
+      </div>
+      <p class="rise" style="margin-top:22px;font-size:29px">The work comes to the worker. Each person does one short task, again and again.</p>
+    </div>
+    <div class="vt rise" data-main style="position:absolute;left:120px;top:790px;width:330px" data-src="videos/rev2-assembly-line.mp4" data-title="The assembly line"><span>The assembly line<small>1:57 · the next click plays it</small></span></div>
+    <aside class="notes"><p class="t">Minute 19 to 21.5</p><p><b>OPEN</b> The film tile at the bottom left (1:57, your own clip). It opens full screen. Play about one minute.</p><p><b>SAY</b> "Electric motors can sit on every machine, so the factory can be laid out along the product. Parts are made to standard sizes. On 7 October 1913 Ford's line starts moving." After the clip: "Look at the people in the model. What kind of work is this?" Expected answer: short, repeated, tiring. "Work that is dull, dirty or dangerous. Remember those three words. They are the reason for the next slide."</p><p><b>DO</b> Press next to play it full screen. Press next again after about a minute: that closes the film and moves on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-r3" data-view="uni" data-sec="2 · Four revolutions" data-part="2" data-t="21.5 to 23.5">
+    <div class="col" style="width:820px">
+      <p class="kicker rise">Third Industrial Revolution · about 1970</p>
+      <h2 class="rise">Electronics, computers<br>and the first robots</h2>
+      <ul class="years rise">
+        <li><i>1961</i><b>Unimate</b> starts work at General Motors, lifting hot metal castings</li>
+        <li><i>1969</i>The first <b>PLC</b>, a small computer that replaces walls of relays</li>
+        <li><i>1973</i>KUKA <b>FAMULUS</b>: six axes, all driven by electric motors</li>
+        <li><i>1978</i><b>PUMA</b> and <b>SCARA</b>: robots for small, fast assembly</li>
+      </ul>
+    </div>
+    <div class="vt rise" data-main style="position:absolute;left:120px;top:800px;width:310px" data-src="videos/rev3-electronics.mp4" data-title="The Third Industrial Revolution"><span>The third revolution<small>0:48 · the next click plays it</small></span></div>
+    <aside class="notes"><p class="t">Minute 21.5 to 23.5</p><p><b>OPEN</b> The film tile at the bottom left (48 seconds, your own clip). It opens full screen.</p><p><b>SAY</b> "A machine no longer needs a cam or a card for every move. A program in memory tells it what to do, and you can change the program in minutes. The robot on the right is the first one that worked in a factory. It took the job nobody wanted: lifting red-hot castings out of a die-casting machine."</p><p><b>DO</b> Press next to play the clip full screen, then next again to close it and move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-uni" data-view="uniTeach" data-steps="1" data-sec="2 · Four revolutions" data-part="2" data-t="23.5 to 25.5">
+    <div class="col" style="width:760px">
+      <p class="kicker rise">1961 · Devol and Engelberger</p>
+      <h2 class="rise">Teach once,<br>repeat for ever</h2>
+      <p class="rise">Unimate could not see or think. An operator moved the arm to each position and saved it.</p>
+      <p data-only="0" style="position:absolute"><b class="am">Teaching:</b> the arm is led slowly to five points. Each one is saved.</p>
+      <p data-only="1" style="position:absolute"><b class="gr">Repeating:</b> the robot plays the five points back, all day.</p>
+      <p class="note" style="margin-top:130px">Many factory robots are still programmed like this, with a teach pendant.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 23.5 to 25.5</p><p><b>OPEN</b> Nothing to open. One click switches from teaching to repeating.</p><p><b>SAY</b> While it teaches: "The numbers are the saved points. One: wait. Two: reach into the die. Three: pull the casting out. Four: turn. Five: lower it into the water." Click. "Now it repeats. Ask it to pick a casting that lies ten centimetres to the left, and it closes its gripper on air." Ask: "What is missing?" Expected answer: sensors, any way to notice the world.</p><p><b>DO</b> Wait until all five yellow points are shown, then press next once to switch to repeat mode. The orange block is the hot casting. It turns grey in the water tank.</p></aside>
+  </section>
+
+  <section class="slide" id="s-r4" data-view="tlDark" data-sec="2 · Four revolutions" data-part="2" data-t="25.5 to 27.5">
+    <p class="kicker rise">Fourth Industrial Revolution · named in 2011 at the Hannover fair</p>
+    <h2 class="rise" style="margin-bottom:18px">Industry 4.0: nine technologies</h2>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div class="pill9 rise">
+        <div class="vt" data-src="videos/p1-virtual-reality.mp4" data-title="Virtual reality"><b>1</b><span>Virtual reality<small>0:51</small></span></div>
+        <div class="vt" data-src="videos/p2-additive-manufacturing.mp4" data-title="Additive manufacturing"><b>2</b><span>Additive manufacturing<small>0:51</small></span></div>
+        <div class="vt" data-src="videos/p3-internet-of-things.mp4" data-title="Internet of things"><b>3</b><span>Internet of things<small>0:52</small></span></div>
+        <div class="vt" data-src="videos/p4-big-data.mp4" data-title="Big data"><b>4</b><span>Big data<small>0:37</small></span></div>
+        <div class="vt" data-src="videos/p5-cloud-computing.mp4" data-title="Cloud computing"><b>5</b><span>Cloud computing<small>0:27</small></span></div>
+        <div class="vt" data-src="videos/p6-advanced-simulation.mp4" data-title="Advanced simulation"><b>6</b><span>Advanced simulation<small>0:36</small></span></div>
+        <div class="vt" data-src="videos/p7-autonomous-robots.mp4" data-title="Autonomous robots"><b>7</b><span>Autonomous robots<small>0:38</small></span></div>
+        <div class="vt" data-src="videos/p8-universal-integration.mp4" data-title="Universal integration"><b>8</b><span>Universal integration<small>0:49</small></span></div>
+        <div class="vt" data-src="videos/p9-cybersecurity.mp4" data-title="Cybersecurity"><b>9</b><span>Cybersecurity<small>0:25</small></span></div>
+      </div>
+      <div class="card rise" style="width:440px"><h3>Pick two</h3><p>Click a tile, or press its number. Esc closes the film.</p><p style="margin-top:16px">Which of the nine is your own field?</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 25.5 to 27.5</p><p><b>OPEN</b> Two of the nine tiles (your own clips, 25 to 52 seconds each). Suggested: 7 Autonomous robots and 6 Advanced simulation. Key 7 and key 6 open them, Esc closes.</p><p><b>SAY</b> "The name Industrie 4.0 was first used at the Hannover fair in 2011. The idea is that machines carry sensors, share data over a network and are steered by software that learns from that data. These are the nine technologies usually listed." Ask: "Which of the nine belongs to your programme?" Take two answers and play those two clips if the class chooses.</p><p><b>DO</b> Play two clips, no more. Close each with Esc.</p></aside>
+  </section>
+
+  <section class="slide" id="s-bridge" data-view="tlLow" data-sec="2 · Four revolutions" data-part="2" data-t="27.5 to 28">
+    <p class="kicker rise">The thread through 800 years</p>
+    <p class="stmt rise">Each step moved more of the<br><em style="font-style:normal;color:var(--or)">"how"</em> out of metal and into software.</p>
+    <div class="flow rise">
+      <div class="card"><b class="y">1206</b><h3>Peg</h3><p>Move a peg, change the rhythm.</p></div><div class="arr">›</div>
+      <div class="card"><b class="y">1774</b><h3>Cam</h3><p>File a new cam, change the drawing.</p></div><div class="arr">›</div>
+      <div class="card"><b class="y">1804</b><h3>Card</h3><p>Swap the cards, change the cloth.</p></div><div class="arr">›</div>
+      <div class="card"><b class="y">1961</b><h3>Program</h3><p>Teach new points, change the job.</p></div><div class="arr">›</div>
+      <div class="card" style="border-color:var(--or)"><b class="y">2020s</b><h3>Model</h3><p>Show examples. The robot learns the job.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 27.5 to 28</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Peg, cam, card, program, model. Each time the machine itself changes less, and what we change gets softer. That is why a robotics lecture is also a lecture for computer scientists. The last box is stop 6."</p><p><b>DO</b> Read the five boxes from left to right. Then move on.</p></aside>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="slide opener" id="s-p3" data-view="evo" data-sec="3 · What is a robot?" data-part="3" data-t="28 to 28.5">
+    <div class="col" style="top:170px">
+      <p class="n rise">3</p>
+      <h2 class="rise">What is a robot?</h2>
+      <p class="lead rise">A definition, the parts and the families.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 28 to 28.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "We have used the word for half an hour. Now we pin it down."</p><p><b>DO</b> Move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-def" data-view="heroDim" data-sec="3 · What is a robot?" data-part="3" data-t="28.5 to 30.5">
+    <p class="kicker rise">ISO 8373:2021, Robotics: Vocabulary</p>
+    <p class="def rise">A robot is a <span data-st="1" style="--c:var(--cy)">programmed</span> <span data-st="2" style="--c:var(--or)">actuated mechanism</span> with <span data-st="3" style="--c:var(--gr)">a degree of autonomy</span> to perform <span data-st="4" style="--c:var(--am)">locomotion, manipulation or positioning</span>.</p>
+    <div class="ana">
+      <div class="card" data-st="1" style="--c:var(--cy)"><h3>Programmed</h3><p>Its task is written down and can be changed.</p></div>
+      <div class="card" data-st="2" style="--c:var(--or)"><h3>Actuated mechanism</h3><p>It has a body with motors. Software alone is not a robot.</p></div>
+      <div class="card" data-st="3" style="--c:var(--gr)"><h3>A degree of autonomy</h3><p>It decides something itself, from what it senses.</p></div>
+      <div class="card" data-st="4" style="--c:var(--am)"><h3>Three kinds of task</h3><p>It moves itself, or it moves and places things.</p></div>
+    </div>
+    <p class="small" data-st="5" style="margin-top:34px;font-size:25px;max-width:1500px"><b>Industrial robot:</b> an automatically controlled, reprogrammable, multipurpose manipulator, programmable in three or more axes.</p>
+    <aside class="notes"><p class="t">Minute 28.5 to 30.5</p><p><b>OPEN</b> Nothing. Five clicks: one per part of the sentence, then the industrial robot line.</p><p><b>SAY</b> One click per part. "Programmed: someone can change what it does." "Actuated mechanism: it has a body that moves." "A degree of autonomy: this is the new part compared with a machine tool. The standard defines autonomy as doing the task from the current state and from sensing, without a person stepping in." "And the task is one of three: move itself, handle something, or position something." Last click: "An industrial robot is the narrow case: a reprogrammable arm with at least three axes."</p><p><b>DO</b> Click five times, slowly. Note for you: the earlier version of this talk quoted the 2012 edition. This is the 2021 edition. A new revision is in draft (ISO/DIS 8373, December 2025).</p></aside>
+  </section>
+
+  <section class="slide" id="s-verdict" data-view="heroDim" data-steps="6" data-sec="3 · What is a robot?" data-part="3" data-t="30.5 to 32.5">
+    <p class="kicker rise">The vote, again</p>
+    <h2 class="rise">Which of these is a robot?</h2>
+    <div class="poll">
+      <div class="card pc live no rise"><span class="v">NO</span><h3>A washing machine</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">Programmed and actuated, but it does not handle or move anything on its own judgement. An automatic machine.</p></div>
+      <div class="card pc live no rise"><span class="v">NOT YET</span><h3>A drone flown by remote control</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">The person decides everything. Give it a route to fly alone and it becomes a robot.</p></div>
+      <div class="card pc live yes rise"><span class="v">YES</span><h3>A robot vacuum cleaner</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">It senses the room, plans its path and moves itself. A service robot.</p></div>
+      <div class="card pc live no rise"><span class="v">NO</span><h3>A chatbot</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">No actuated mechanism. It is software. Put it in charge of a body, and that changes.</p></div>
+      <div class="card pc live yes rise"><span class="v">YES</span><h3>A welding arm in a car factory</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">Reprogrammable, six axes, handles a tool. The classic industrial robot.</p></div>
+      <div class="card pc live may rise"><span class="v">ALMOST</span><h3>A writing doll from 1774</h3><p class="q">Programmed? Body? Autonomy? Task?</p><p class="why">Programmed by its cams and actuated, but it senses nothing. An automaton.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 30.5 to 32.5</p><p><b>OPEN</b> Nothing. Six clicks, one verdict each. You can also click a card with the mouse.</p><p><b>SAY</b> Before each click ask the class to test the four words: "Programmed? Body? Autonomy? Task?" Then click and compare with the numbers on the board from the first vote. The drone and the chatbot give the best discussion: both become robots when the missing part is added. Say that people argue about the washing machine, and that the test is what matters, not the label.</p><p><b>DO</b> Six clicks. After the last one, ask who changed their mind on at least one.</p></aside>
+  </section>
+
+  <section class="slide" id="s-sta" data-view="sta" data-sec="3 · What is a robot?" data-part="3" data-t="32.5 to 34.5">
+    <div class="col" style="width:700px">
+      <p class="kicker rise">What autonomy looks like</p>
+      <h2 class="rise">Sense, think, act</h2>
+      <ul class="rise">
+        <li><b class="cy">Sense:</b> a laser scanner measures the distance to every wall and box</li>
+        <li><b class="am">Think:</b> the hits build a map, and the robot plans a path on it</li>
+        <li><b class="gr">Act:</b> the wheels follow the path, and the loop starts again</li>
+      </ul>
+      <div class="btns rise" style="margin-top:20px"><button class="btn" id="sta-drop">Drop a box in its way</button><button class="btn" id="sta-reset">Clear</button></div>
+      <div class="read rise"><div><span>Map points</span><b id="sta-pts">0</b></div><div><span>Path left</span><b id="sta-len">0 m</b></div></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 32.5 to 34.5</p><p><b>OPEN</b> The button "Drop a box in its way".</p><p><b>SAY</b> "Blue lines: the laser. Yellow dots: every place the laser has hit something. That cloud of dots is the robot's map. Green line: the path it planned to the green ring." Click the button. "I just put a box on its path. Watch the green line." Ask: "Who told it to go around?" Expected answer: nobody. It sensed the box and planned again. "Unimate would have driven into it."</p><p><b>DO</b> Drop a box two or three times. Each time the green path must change. Press Clear at the end.</p></aside>
+  </section>
+
+  <section class="slide" id="s-anat" data-view="armA" data-steps="2" data-sec="3 · What is a robot?" data-part="3" data-t="34.5 to 35.5">
+    <div class="col" style="width:560px">
+      <p class="kicker rise">The parts</p>
+      <h2 class="rise" style="font-size:60px">Anatomy of an industrial arm</h2>
+      <p data-st="1" style="font-size:28px"><b>Links</b> are the rigid parts. <b>Joints</b> connect them and are driven by motors.</p>
+      <p data-st="2" style="font-size:28px">Each joint that a motor drives is one <b>axis</b>. This arm has six.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 34.5 to 35.5</p><p><b>OPEN</b> Nothing. Two clicks: first the names of the parts, then the six axes.</p><p><b>SAY</b> First click: "Base, links, the end effector, which is whatever tool is bolted to the last flange, and the controller. The teach pendant is the hand-held box Unimate's grandchildren are still programmed with." Second click: "Count the orange circles with me. Six motors, six axes."</p><p><b>DO</b> Click twice. Count the six numbers aloud with the class.</p></aside>
+  </section>
+
+  <section class="slide" id="s-dof" data-view="armQ" data-sec="3 · What is a robot?" data-part="3" data-t="35.5 to 37">
+    <div class="col" style="width:720px">
+      <p class="kicker rise">Degrees of freedom</p>
+      <h2 class="rise">Why six axes?</h2>
+      <p class="rise">Three axes put the hand anywhere in space. Three more turn it to any direction.</p>
+      <div class="rise">
+        <div class="ctl"><span>Axis 1</span><input type="range" data-j="0" min="-170" max="170" value="0"><output>0°</output></div>
+        <div class="ctl"><span>Axis 2</span><input type="range" data-j="1" min="-80" max="60" value="0"><output>0°</output></div>
+        <div class="ctl"><span>Axis 3</span><input type="range" data-j="2" min="-70" max="90" value="0"><output>0°</output></div>
+        <div class="ctl"><span>Axis 4</span><input type="range" data-j="3" min="-180" max="180" value="0"><output>0°</output></div>
+        <div class="ctl"><span>Axis 5</span><input type="range" data-j="4" min="-110" max="110" value="0"><output>0°</output></div>
+        <div class="ctl"><span>Axis 6</span><input type="range" data-j="5" min="-180" max="180" value="0"><output>0°</output></div>
+        <div class="btns" style="margin-top:14px"><button class="btn" id="dof-demo">Show each axis</button><button class="btn" id="dof-home">Home</button></div>
+      </div>
+    </div>
+    <aside class="notes"><p class="t">Minute 35.5 to 37</p><p><b>OPEN</b> The six sliders and the button "Show each axis".</p><p><b>SAY</b> "Axis 1, 2 and 3 are the big ones. Watch where the wrist goes." Move sliders 1, 2, 3. "Now the wrist stays in place and only the gripper turns." Move 4, 5, 6. Ask: "A body in space has how many degrees of freedom?" Expected answer: six, three positions and three rotations. "So six axes is the smallest number that can reach any position with any orientation. A SCARA has four, and that is enough for its job."</p><p><b>DO</b> Move sliders 1 to 3, then 4 to 6. Or press "Show each axis" and name each axis as it moves. Press Home before you leave.</p></aside>
+  </section>
+
+  <section class="slide" id="s-fam" data-views="fam0,fam1,fam2,fam3,fam4" data-sec="3 · What is a robot?" data-part="3" data-t="37 to 39">
+    <p class="kicker rise">Five families of industrial robot</p>
+    <div class="card hcard" data-only="0"><h3><small>1 of 5</small>Articulated arm</h3><p>Six turning joints, like a shoulder, an elbow and a wrist. The all-rounder: welding, painting, handling.</p></div>
+    <div class="card hcard" data-only="1"><h3><small>2 of 5</small>SCARA</h3><p>Up a column, then two arms that swing in a flat plane, and a shaft that moves down. Four axes. Fast assembly of small parts.</p></div>
+    <div class="card hcard" data-only="2"><h3><small>3 of 5</small>Delta</h3><p>Three light arms hold one small plate, and the motors stay on the frame. The fastest picker: food, medicine, electronics.</p></div>
+    <div class="card hcard" data-only="3"><h3><small>4 of 5</small>Cartesian or gantry</h3><p>Three straight axes at right angles. Simple and stiff. A 3D printer and a CNC machine are built this way.</p></div>
+    <div class="card hcard" data-only="4"><h3><small>5 of 5</small>Collaborative robot</h3><p>A light arm that senses contact and stops. It may share the bench with a person, without a fence.</p></div>
+    <aside class="notes"><p class="t">Minute 37 to 39</p><p><b>OPEN</b> Nothing. Four clicks fly the camera along the row.</p><p><b>SAY</b> One sentence per robot, then one question. Articulated: "The one you saw." SCARA: "Follow its shape: up the column, out along two arms, down the shaft. Why is it fast?" Expected answer: its arms only swing in a flat plane, and gravity is carried by the column. Delta: "Where are the motors?" Expected answer: on the frame, so the moving part weighs almost nothing. Gantry: "Where have you seen this?" Expected answer: a 3D printer. Cobot: "What is missing around it?" Expected answer: the fence.</p><p><b>DO</b> Four clicks. Let each robot finish one pick before you move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-zoo" data-views="zoo0,zoo1,zoo2,zoo3" data-sec="3 · What is a robot?" data-part="3" data-t="39 to 40.5">
+    <p class="kicker rise">Robots that move themselves</p>
+    <div class="card hcard" data-only="0"><h3><small>Wheels</small>Autonomous mobile robot</h3><p>It carries shelves and pallets through a warehouse and plans its own route around people.</p></div>
+    <div class="card hcard" data-only="1"><h3><small>Rotors</small>Drone</h3><p>A flying robot. With a route and sensors it inspects, maps and delivers without a pilot.</p></div>
+    <div class="card hcard" data-only="2"><h3><small>Four legs</small>Quadruped</h3><p>It walks where wheels cannot: stairs, gratings, building sites. Today it mostly inspects plants.</p></div>
+    <div class="card hcard" data-only="3"><h3><small>Two legs</small>Humanoid</h3><p>Built like us, so it can use our stairs, doors and tools. The newest family. More at stop 6.</p></div>
+    <aside class="notes"><p class="t">Minute 39 to 40.5</p><p><b>OPEN</b> Nothing. Three clicks along the row.</p><p><b>SAY</b> "The definition said locomotion. These four move themselves." Mobile robot: "It lifts the whole shelf and brings it to the person." Drone: "Aviation students, this one is yours. We fly it at stop 6." Quadruped: "Look at the knees: all four point backwards." Humanoid: "Why build a robot shaped like a person?" Expected answer: because the world is built for people.</p><p><b>DO</b> Three clicks. Keep it short, the humanoid returns later.</p></aside>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="slide opener" id="s-p4" data-view="evo" data-sec="4 · Robots in numbers" data-part="4" data-t="40.5 to 41">
+    <div class="col" style="top:170px">
+      <p class="n rise">4</p>
+      <h2 class="rise">Robots in numbers</h2>
+      <p class="lead rise">The count for 2025, published in autumn 2026.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 40.5 to 41</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "The International Federation of Robotics counts the world's robots every year. These numbers are eight weeks old."</p><p><b>DO</b> Move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-five" data-view="gDim" data-sec="4 · Robots in numbers" data-part="4" data-t="41 to 42.5">
+    <p class="kicker rise">Industrial robots, end of 2025</p>
+    <h2 class="rise"><em data-to="5079078">5,079,078</em> robots at work in factories</h2>
+    <div class="g4" style="margin-top:10px;width:1320px">
+      <div class="card tile rise"><b data-to="9" data-pre="+" data-suf="%">+9%</b><span>more than a year earlier, and double the number of seven years ago</span></div>
+      <div class="card tile rise"><b data-to="603000">603,000</b><span>new robots installed in 2025, the first year above 600,000</span></div>
+      <div class="card tile rise"><b data-to="655000">655,000</b><span>expected in 2026</span></div>
+      <div class="card tile rise"><b data-to="806000">806,000</b><span>expected in 2029</span></div>
+    </div>
+    <div class="vt rise" style="position:absolute;left:1480px;top:330px;width:320px" data-yt="LxJzrm5mDH4" data-title="Facts about industrial robots: World Robotics 2026"><span>IFR: the facts in a short film<small>1:35 · YouTube</small></span></div>
+    <p class="src">Source: International Federation of Robotics, World Robotics 2026, press release of 24 September 2026.</p>
+    <aside class="notes"><p class="t">Minute 41 to 42.5</p><p><b>OPEN</b> Optional: the tile on the right is the IFR's own film (1:35, YouTube, needs internet). Use it only if you are ahead of time.</p><p><b>SAY</b> "Five million and seventy-nine thousand. Seven years ago it was less than half of that. And 2025 is the first year in which more than 600,000 new robots were installed." Ask: "Guess: which country installed more than half of them?" Take guesses, then go to the next slide.</p><p><b>DO</b> Let the counters finish. Take three guesses from the class.</p></aside>
+  </section>
+
+  <section class="slide" id="s-where" data-views="gAsia,gEu,gAm" data-sec="4 · Robots in numbers" data-part="4" data-t="42.5 to 44.5">
+    <div class="col" style="width:620px">
+      <p class="kicker rise">New robots installed in 2025</p>
+      <h2 class="rise" style="font-size:60px">Where did they go?</h2>
+      <div data-only="0" style="position:absolute;width:620px"><p><b class="or">China: 354,000.</b> That is 59% of the world total, and 20% more than in 2024.</p><p style="font-size:27px">Japan, South Korea and India follow in Asia.</p></div>
+      <div data-only="1" style="position:absolute;width:620px"><p><b class="or">Germany: just under 25,000,</b> which is 41% of the European Union's total. Its sales fell by 8%.</p><p style="font-size:27px">Italy, France and Spain also bought fewer.</p></div>
+      <div data-only="2" style="position:absolute;width:620px"><p><b class="or">United States: about 38,500.</b> It passed Japan and is now the second largest market.</p><p style="font-size:27px">Brazil grew by 38%. Mexico fell by 7%.</p></div>
+    </div>
+    <p class="src">Source: IFR, World Robotics 2026. The height of each bar grows with the square root of the number.</p>
+    <aside class="notes"><p class="t">Minute 42.5 to 44.5</p><p><b>OPEN</b> Nothing. Two clicks turn the globe: Asia, Europe, the Americas.</p><p><b>SAY</b> Asia: "China alone: 354,000. More than the rest of the world together. And 55% of the robots sold in China are now made by Chinese suppliers." Europe: "Germany is fifth in the world and buys 41% of the EU's robots, but it bought fewer than the year before. So did Italy, France and Spain." Americas: "The United States is now second, ahead of Japan."</p><p><b>DO</b> Two clicks. Tell the class the bars are not to scale in height: China's bar would leave the screen. The numbers on the labels are exact as published.</p></aside>
+  </section>
+
+  <section class="slide" id="s-dens" data-view="gDim" data-sec="4 · Robots in numbers" data-part="4" data-t="44.5 to 46.5">
+    <p class="kicker rise">Robot density, 2025</p>
+    <h2 class="rise" style="font-size:54px;margin-bottom:20px">Industrial robots per 10,000 factory workers</h2>
+    <div class="bars rise" style="width:1280px">
+      <div class="bar hi"><span>South Korea</span><div data-w="78"><i></i><b>1,066</b></div></div>
+      <div class="bar"><span>Singapore</span><div data-w="63.9"><i></i><b>873</b></div></div>
+      <div class="bar"><span>Germany</span><div data-w="34.3"><i></i><b>469</b></div></div>
+      <div class="bar"><span>Japan</span><div data-w="33.1"><i></i><b>452</b></div></div>
+      <div class="bar"><span>United States</span><div data-w="23.6"><i></i><b>323</b></div></div>
+      <div class="bar"><span>Canada</span><div data-w="17.7"><i></i><b>242</b></div></div>
+      <div class="bar avg"><span>European Union</span><div data-w="17.6"><i></i><b>240, average</b></div></div>
+      <div class="bar"><span>China</span><div data-w="14.1"><i></i><b>193, rank 19</b></div></div>
+      <div class="bar avg"><span>World</span><div data-w="11.1"><i></i><b>152, average</b></div></div>
+      <div class="bar"><span>Mexico</span><div data-w="4.7"><i></i><b>64</b></div></div>
+    </div>
+    <p class="src">Source: IFR press release, 12 November 2026 (data for 2025). Not the full ranking: the countries the release names.</p>
+    <aside class="notes"><p class="t">Minute 44.5 to 46.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Counting robots favours big countries. Density is fairer: robots for every 10,000 people who work in manufacturing. South Korea has more than one robot for every ten workers." Ask: "China buys 59% of the world's robots. Why is it only 19th here?" Expected answer: the number is divided by a very large workforce. Add: "This figure for China is new. The IFR now uses China's own economic census for the number of workers. Its density still grew by 147% in five years."</p><p><b>DO</b> Read the top four. Then ask the China question and wait for an answer. Note for you: these ten are the countries the press release names, not the top ten. Sweden, Denmark, Slovenia and the Netherlands are also in the top ten but the release gives no figures for them.</p></aside>
+  </section>
+
+  <section class="slide" id="s-serv" data-view="zooDim" data-sec="4 · Robots in numbers" data-part="4" data-t="46.5 to 48">
+    <p class="kicker rise">Outside the factory, 2025</p>
+    <h2 class="rise">Service robots grow faster</h2>
+    <div class="g4" style="margin-top:6px">
+      <div class="card tile rise"><b><em data-to="250000">250,000</em></b><span>professional service robots sold, up 24%</span></div>
+      <div class="card tile rise"><b><em data-to="117500">117,500</em></b><span>of them carry goods: transport and logistics, 47%</span></div>
+      <div class="card tile rise"><b><em data-to="8400">8,400</em></b><span>surgical robots sold, up 57%</span></div>
+      <div class="card tile rise"><b><em data-to="34.2" data-dec="1">34.2</em> <i>m</i></b><span>consumer robots sold, mostly for the home, up 37%</span></div>
+      <div class="card tile rise"><b><em data-to="1">1</em> <i>million</i></b><span>robots in Amazon's warehouses: the millionth went to Japan in June 2025</span></div>
+      <div class="card tile rise"><b><em data-to="500000">500,000</em></b><span>paid driverless taxi rides a week at Waymo, March 2026</span></div>
+      <div class="card tile rise" style="border-color:var(--or)"><b><em data-to="7000">7,000</em></b><span>humanoid robots sold in the whole world. Keep this number for stop 6</span></div>
+      <div class="card tile rise"><b><i>47%</i></b><span>of professional service robots move things from A to B</span></div>
+    </div>
+    <p class="src">Sources: IFR World Robotics 2026, Service Robots (30 September 2026). Amazon, 30 June 2025. Waymo, reported 26 March 2026.</p>
+    <aside class="notes"><p class="t">Minute 46.5 to 48</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "A service robot does useful work outside a production line. Almost half of the professional ones do one thing: carry goods. Amazon alone runs a million robots. That is about one for every five factory robots in the world." Point at the orange tile. "And this is the number of humanoids sold in 2025: about seven thousand. Hold it against five million. We need it in 20 minutes."</p><p><b>DO</b> Point at the orange tile last. Note for you: the 250,000 is "almost 250,000" in the IFR text, and the humanoid figure is the IFR's estimate, quoted in the press.</p></aside>
+  </section>
+
+  <!-- ============ PART 5 ============ -->
+  <section class="slide opener" id="s-p5" data-view="evo" data-sec="5 · Robots 4.0" data-part="5" data-t="48 to 48.5">
+    <div class="col" style="top:170px;width:700px">
+      <p class="n rise">5</p>
+      <h2 class="rise" style="font-size:76px">Robots 4.0</h2>
+      <p class="lead rise">Robots as cyber-physical systems.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 48 to 48.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Stop 5. What does Industry 4.0 do to the robot itself?"</p><p><b>DO</b> Move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-cps" data-view="twin" data-steps="1" data-sec="5 · Robots 4.0" data-part="5" data-t="48.5 to 50.5">
+    <div class="col" style="width:640px">
+      <p class="kicker rise">Cyber-physical systems</p>
+      <h2 class="rise" style="font-size:54px">A machine and its software, joined by data</h2>
+      <p class="rise" style="font-size:28px">Robots and other cyber-physical systems <b>sense, process and react</b> to information from the physical world.</p>
+      <p class="rise" style="font-size:28px">They must work safely even when the world is uncertain and their resources are limited.</p>
+      <p class="rise" style="font-size:26px;color:var(--mute)">Research questions: visual perception, inference from data, machine learning and control.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 48.5 to 50.5</p><p><b>OPEN</b> Nothing. One click injects a fault into the real robot.</p><p><b>SAY</b> "Left: the real arm, with a sensor on every joint. Right: its digital twin, a software copy fed by those sensors. Blue dots are measurements going to the twin. Yellow dots are commands coming back." Click. "I have just worn out a bearing on axis 3. You can hardly see it on the real arm. The twin sees the vibration in the data and warns before the robot fails." Ask: "What would Unimate's owner have done?" Expected answer: waited until it broke.</p><p><b>DO</b> One click. Point at the two red labels. The fault and the warning are an illustration, not a real diagnosis model.</p></aside>
+  </section>
+
+  <section class="slide" id="s-v40" data-view="heroDim" data-sec="5 · Robots 4.0" data-part="5" data-t="50.5 to 53.5">
+    <div class="vhead"><span>Robots 4.0 at work</span><small>your own compilation · 7:16 · play the first three minutes</small></div>
+    <div class="vid big" data-main data-src="videos/robots-4-0.mp4" data-title="Robots 4.0: cobots, surgery, warehouses, delivery" data-len="7:16"></div>
+    <aside class="notes"><p class="t">Minute 50.5 to 53.5</p><p><b>OPEN</b> The film (your own compilation, 7:16). Play about three minutes.</p><p><b>SAY</b> Before: "Count the kinds of robot you see, and where each one works." After: "Which ones were in a factory?" Expected answer: the cobots. "The surgical robot, the warehouse fleet and the delivery robots are service robots. All of them are connected."</p><p><b>DO</b> Press next to play. Stop with next after about three minutes (the Starship delivery robots are a good place to stop).</p></aside>
+  </section>
+
+  <section class="slide" id="s-cobot" data-view="cobot" data-sec="5 · Robots 4.0" data-part="5" data-t="53.5 to 56.5">
+    <div class="col" style="width:740px">
+      <p class="kicker rise">Collaborative robots</p>
+      <h2 class="rise">No fence</h2>
+      <p class="rise">Sensors watch how far away the person is. The robot slows down, then stops before contact.</p>
+      <div class="rise">
+        <div class="ctl" style="grid-template-columns:150px 1fr 110px"><span>Distance</span><input type="range" id="cb-dist" min="105" max="420" value="400"><output id="cb-d">4.0 m</output></div>
+        <div class="btns"><button class="btn on" id="cb-auto">Person walks alone</button></div>
+        <div class="read"><div><span>Robot speed</span><b id="cb-speed">100%</b></div><div><span>State</span><b id="cb-state" style="font-size:40px;line-height:1.4">Full speed</b></div></div>
+      </div>
+      <p class="note rise">The first cobot sold: Universal Robots UR5, 2008. Safety rules: ISO 10218 (new edition 2025).</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 53.5 to 56.5</p><p><b>OPEN</b> The slider "Distance". Moving it takes the person over. The button gives the person back to the computer.</p><p><b>SAY</b> "A classic robot is fast and strong, so it works behind a fence. Open the gate and it stops. A cobot is allowed to share the space." Drag the person in. "Green zone: full speed. Amber: 30%. Red: protective stop. The caps on its joints show the state." Ask: "The robot now moves twice as fast. What must happen to the red zone?" Expected answer: it must grow, because the robot needs more distance to stop. "This method is called speed and separation monitoring."</p><p><b>DO</b> Drag the slider slowly from 4 m to 1 m and back. Read the speed aloud at 3 m, 2 m and 1 m. The 30% and the zone sizes are chosen for the demo. Real cells calculate them from the standard.</p></aside>
+  </section>
+
+  <!-- ============ PART 6 ============ -->
+  <section class="slide opener" id="s-p6" data-view="evo" data-sec="6 · Robots that learn" data-part="6" data-t="56.5 to 57">
+    <div class="col" style="top:170px">
+      <p class="n rise">6</p>
+      <h2 class="rise">Robots that learn</h2>
+      <p class="lead rise">What changed between 2023 and today.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 56.5 to 57</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Everything so far I could have told you three years ago, with older numbers. This stop I could not. In 2023 the language models you use every day started to be connected to robot bodies."</p><p><b>DO</b> Move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-then" data-view="vlaDim" data-steps="1" data-sec="6 · Robots that learn" data-part="6" data-t="57 to 58.5">
+    <p class="kicker rise">Two ways to tell a robot what to do</p>
+    <h2 class="rise">Programmed, or taught by example</h2>
+    <div class="cmp" style="width:1300px">
+      <div class="card a rise"><h3>Programmed <small style="display:inline;color:var(--mute);font-size:22px;letter-spacing:0">since 1961</small></h3><ul><li>An engineer teaches every point</li><li>The part must lie in the same place every time</li><li>A new product needs a new program</li><li>Fast, exact and tireless at its one task</li></ul></div>
+      <div class="card b rise" style="border-color:var(--or)"><h3>Learned <small style="display:inline;color:var(--mute);font-size:22px;letter-spacing:0">since about 2023</small></h3><ul><li>The robot learns from thousands of examples</li><li>It finds the part with its cameras</li><li>You give the task in plain words</li><li data-st="1"><b>Still slower and less reliable</b> than a programmed robot at one fixed task</li></ul></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 57 to 58.5</p><p><b>OPEN</b> Nothing. One click shows the last line on the right.</p><p><b>SAY</b> "Left: Unimate and almost all of the five million robots we counted. Right: a model, like the ones behind a chatbot, that takes camera images and words in and gives motor commands out. The research name is vision-language-action model." Click. "And this line is the honest one. In a car plant the programmed robot still wins."</p><p><b>DO</b> One click for the last line. This comparison is your own summary, not a quoted source.</p></aside>
+  </section>
+
+  <section class="slide" id="s-vla" data-view="vla" data-sec="6 · Robots that learn" data-part="6" data-t="58.5 to 61">
+    <div class="col" style="width:760px">
+      <p class="kicker rise">Words in, motion out</p>
+      <h2 class="rise" style="font-size:58px">Give it a task in plain words</h2>
+      <div class="btns rise" style="flex-direction:column;align-items:flex-start;margin-bottom:10px">
+        <button class="btn" data-cmd="1">1 · "Put the red cube in the bowl."</button>
+        <button class="btn" data-cmd="2">2 · "Stack the blue cube on the green cube."</button>
+        <button class="btn" data-cmd="3">3 · "I am thirsty."</button>
+        <button class="btn" data-cmd="0" style="font-size:21px;padding:9px 18px">0 · Reset the table</button>
+      </div>
+      <div class="rise"><p class="lbl">What goes into the model</p><div class="tok" id="vla-in"></div><p class="lbl">What comes out</p><div class="tok" id="vla-out"></div></div>
+      <p class="note rise">An illustration with scripted motions. The real models: Gemini Robotics 2, π0, GR00T, Helix.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 58.5 to 61</p><p><b>OPEN</b> The three buttons, or keys 1, 2, 3. Key 0 resets the table.</p><p><b>SAY</b> Click 1. "Nobody taught it a point. The camera on the mast gives it images. My sentence is cut into word pieces. Out come small moves for the gripper." Click 2. Then: "The third one is the interesting one." Click 3. "I did not name an object. It has to reason: thirsty, so a drink, so the can, so bring it to the person." Ask: "Which part of that is language, and which part is robotics?" Expected answer: choosing the can is language. Gripping it without crushing it is robotics.</p><p><b>DO</b> Click 1, wait until the arm is home, click 2, wait, click 3. Say clearly that this scene is scripted to show the idea. The real thing is on the next film.</p></aside>
+  </section>
+
+  <section class="slide" id="s-learn" data-view="farm" data-sec="6 · Robots that learn" data-part="6" data-t="61 to 63">
+    <div class="col" style="width:720px">
+      <p class="kicker rise">Where the examples come from</p>
+      <h2 class="rise" style="font-size:58px">Three ways a robot learns today</h2>
+      <ul class="rise">
+        <li><b>From people:</b> an operator guides the robot by remote control, and every move is recorded</li>
+        <li><b>From simulation:</b> thousands of virtual robots practise at once, and fail safely</li>
+        <li><b>From one large model:</b> the same "brain" is trained on many robots and many tasks</li>
+      </ul>
+      <div class="card rise" style="margin-top:22px;padding:20px 28px"><div class="read" style="margin:0"><div><span>Attempts so far</span><b id="farm-ep">0</b></div><div><span>Reaching the target now</span><b id="farm-rate" class="gr">0%</b></div></div>
+        <div style="height:8px;border-radius:8px;background:rgba(255,255,255,.12);margin-top:14px;overflow:hidden"><div id="farm-bar" style="height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--gr))"></div></div><p class="note" style="margin-top:8px">Training progress. A green plate means that arm touched its yellow target.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 61 to 63</p><p><b>OPEN</b> Nothing. The 40 arms train by themselves in a loop of about 30 seconds.</p><p><b>SAY</b> "Forty copies of one arm. Each has a yellow ball to touch. At the start they wave about. Watch the plates." Wait. "Each failure costs nothing here. A real robot that learned like this would break itself." Ask: "Why not train only in simulation?" Expected answer: the simulation is never quite like the real world. Friction, light and soft objects differ. Engineers call it the gap between simulation and reality.</p><p><b>DO</b> Let one full training run play (the bar fills, most plates turn green). This is an animation of the idea, not a learning algorithm running live.</p></aside>
+  </section>
+
+  <section class="slide" id="s-vgem" data-view="vlaWide" data-sec="6 · Robots that learn" data-part="6" data-t="63 to 65">
+    <div class="vhead"><span>The real thing: Gemini Robotics 2, July 2026</span><small>Google DeepMind and Apptronik · 3:00 · YouTube</small></div>
+    <div class="vid big" data-main data-yt="4lSQnrMC6nY" data-title="Gemini Robotics 2 brings whole body intelligence to robots" data-len="3:00" data-cred="Google DeepMind"></div>
+    <aside class="notes"><p class="t">Minute 63 to 65</p><p><b>OPEN</b> The film (YouTube, needs internet): "Gemini Robotics 2 brings whole body intelligence to robots", Google DeepMind, 30 July 2026, 3:00. Play about two minutes.</p><p><b>SAY</b> Before: "This is the company's own film, so it shows the best takes. Watch for two things: does a person speak to the robot, and does the robot use its legs as well as its hands?" After: "Earlier versions moved only the arms at a table. This one, from July, controls the whole body."</p><p><b>DO</b> Press next to play. If there is no internet, the slide shows a link instead: skip it and describe it in one sentence.</p></aside>
+  </section>
+
+  <section class="slide" id="s-hum" data-view="hum" data-steps="4" data-sec="6 · Robots that learn" data-part="6" data-t="65 to 67">
+    <div class="col" style="width:780px">
+      <p class="kicker rise">Humanoids in 2026</p>
+      <h2 class="rise">Who is building them</h2>
+      <ul>
+        <li data-st="1"><b>Atlas</b>, Boston Dynamics and Hyundai: all-electric since 2024, a product version shown in January 2026</li>
+        <li data-st="2"><b>Figure 03</b>, Figure: shown in October 2025, built for homes and factories</li>
+        <li data-st="3"><b>G1</b>, Unitree: a small humanoid offered from $16,000</li>
+        <li data-st="4"><b>NEO</b>, 1X: sold for the home at $20,000, with a remote operator helping when it is stuck</li>
+      </ul>
+      <div class="chips" data-st="4" style="margin-top:18px"><span class="chip">Optimus · Tesla</span><span class="chip">Apollo · Apptronik</span><span class="chip">Digit · Agility</span><span class="chip">Tiangong · Beijing</span></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 65 to 67</p><p><b>OPEN</b> Nothing. Four clicks, one maker each.</p><p><b>SAY</b> "The model on the right is a generic humanoid, 1.72 m tall. Four names you will hear." Atlas: "The hydraulic Atlas did backflips for ten years. The electric one is meant for Hyundai's car plants." Figure: "A start-up from California." Unitree: "From China, and the price is the news: sixteen thousand dollars for the basic version." NEO: "The first one sold for homes. Read the last words: a human operator can take over by remote control. Is it then a robot?" Take one answer. It is the drone question from slide 19 again.</p><p><b>DO</b> Four clicks. Prices are the makers' own published prices: Unitree's from its 2024 launch film, 1X's from its 2025 launch. Check them again before a later run of this talk.</p></aside>
+  </section>
+
+  <section class="slide" id="s-vhum" data-view="humDim" data-sec="6 · Robots that learn" data-part="6" data-t="67 to 69">
+    <p class="kicker rise">See them move</p>
+    <h2 class="rise">The makers' own films</h2>
+    <div class="g3" style="width:1680px">
+      <div class="vt rise" data-yt="rrUHZKlrxms" data-title="Atlas: product features"><span>Atlas: product features<small>Boston Dynamics · January 2026 · 1:43</small></span></div>
+      <div class="vt rise" data-yt="Eu5mYMavctM" data-title="Introducing Figure 03"><span>Introducing Figure 03<small>Figure · October 2025 · 6:19</small></span></div>
+      <div class="vt rise" data-yt="GzX1qOIO1bE" data-title="Unitree G1"><span>Unitree G1<small>Unitree Robotics · May 2024 · 1:44</small></span></div>
+    </div>
+    <p class="rise" style="margin-top:34px;max-width:1500px">A maker's film shows the best take. Ask of each one: is the robot acting alone, is the film speeded up, and how many tries did it need?</p>
+    <aside class="notes"><p class="t">Minute 67 to 69</p><p><b>OPEN</b> One of the three tiles (YouTube, needs internet). First choice: Atlas, 1:43. Click the tile. Esc closes it.</p><p><b>SAY</b> Before: "Three questions for any robot film: is it acting alone, is the film speeded up, how many tries?" After Atlas: "What job is it shown doing?" Expected answer: moving parts in a factory, the dull job again.</p><p><b>DO</b> Play Atlas in full. If you have two minutes more, play the first minute of Figure 03.</p></aside>
+  </section>
+
+  <section class="slide" id="s-race" data-view="humRun" data-sec="6 · Robots that learn" data-part="6" data-t="69 to 71">
+    <div class="col" style="width:1000px">
+      <p class="kicker rise">Beijing half marathon for humanoid robots, 21.1 km</p>
+      <h2 class="rise" style="font-size:60px">One year of progress</h2>
+      <div class="bars race rise" style="width:1000px;margin-top:8px">
+        <div class="bar"><span>2025 winner, Tiangong Ultra</span><div data-w="66"><i></i><b>2 h 40 min 42 s</b></div></div>
+        <div class="bar avg"><span>Men's world record</span><div data-w="23.4"><i></i><b>about 57 min</b></div></div>
+        <div class="bar hi"><span>2026 winner, built by Honor</span><div data-w="20.7"><i></i><b>50 min 26 s</b></div></div>
+      </div>
+      <p class="rise" style="margin-top:24px;font-size:28px">2025: 21 robots started, and the winner needed three battery changes. 2026: more than 100 teams, and the winner ran without remote control.</p>
+    </div>
+    <div class="vt rise" style="position:absolute;left:120px;top:745px;width:330px" data-yt="oLdVcsttB_A" data-title="Humanoid robots race past humans in Beijing half-marathon"><span>The 2026 race<small>Guardian News · 0:37</small></span></div>
+    <div class="vt rise" style="position:absolute;left:470px;top:745px;width:330px" data-yt="1vUnusbzNMQ" data-title="Robots vs humans: Beijing half-marathon"><span>Longer report<small>Al Jazeera English · 2:13</small></span></div>
+    <p class="src">Sources: Beijing city government and Xinhua, 19 April 2026. Press reports of the 2025 race, 19 April 2025.</p>
+    <aside class="notes"><p class="t">Minute 69 to 71</p><p><b>OPEN</b> The left tile (Guardian News, 37 seconds, YouTube). The second tile is a longer report (2:13) if you prefer it.</p><p><b>SAY</b> "April 2025, Beijing: the first half marathon for humanoid robots. The winner needed two hours and forty minutes. One year later the winner needed fifty minutes and twenty-six seconds, faster than the best human." Play the clip. Then: "Running is balance and motors. It is not the hard part. What can it not do at the finish line?" Expected answer: open a bottle, tie a shoe. Hands and judgement are the hard part.</p><p><b>DO</b> Play the 37-second clip. Note for you: another robot of the same maker crossed the line faster (48:19) but did not win under the race rules, which add a penalty for remote control.</p></aside>
+  </section>
+
+  <section class="slide" id="s-real" data-view="humDim" data-steps="3" data-sec="6 · Robots that learn" data-part="6" data-t="71 to 72.5">
+    <p class="kicker rise">A reality check</p>
+    <h2 class="rise">Sold in 2025</h2>
+    <div class="bars rise" style="width:1400px">
+      <div class="bar" style="grid-template-columns:330px 1fr"><span>Industrial robots</span><div data-w="80"><i></i><b>603,000</b></div></div>
+      <div class="bar" style="grid-template-columns:330px 1fr"><span>Service robots for work</span><div data-w="33.2"><i></i><b>250,000</b></div></div>
+      <div class="bar hi" style="grid-template-columns:330px 1fr"><span>Humanoid robots</span><div data-w="0.93"><i></i><b>about 7,000</b></div></div>
+    </div>
+    <ul style="margin-top:36px;max-width:1500px">
+      <li data-st="1">Most humanoids today work in pilot projects and research labs</li>
+      <li data-st="2">The body is ahead of the brain: walking and running are solved faster than useful work with the hands</li>
+      <li data-st="3">Safety rules for a walking robot next to people are still being written</li>
+    </ul>
+    <p class="src">Source for the three numbers: IFR World Robotics 2026. The three statements are a judgement, not a quoted source.</p>
+    <aside class="notes"><p class="t">Minute 71 to 72.5</p><p><b>OPEN</b> Nothing. Three clicks, one statement each.</p><p><b>SAY</b> "Here is the number I asked you to keep. For every humanoid sold last year, 86 industrial robots were sold. The headline when the IFR published its count was that the humanoid hype faces a reality check." Three clicks. End with: "So is it hype? I think it is early. The first car plants had more horses outside than cars inside."</p><p><b>DO</b> Three clicks. The three statements are your judgement as lecturer. Say so.</p></aside>
+  </section>
+
+  <section class="slide" id="s-drone" data-view="drone" data-sec="6 · Robots that learn" data-part="6" data-t="72.5 to 74">
+    <div class="col" style="width:760px">
+      <p class="kicker rise">Robots in the air and on the road</p>
+      <h2 class="rise" style="font-size:60px">A drone is a flying robot</h2>
+      <p class="rise">Four motors are all it has. To move forward it must tilt, so the rear rotors spin faster than the front ones.</p>
+      <div class="btns rise"><button class="btn on" data-dm="hover">1 Hover</button><button class="btn" data-dm="up">2 Climb</button><button class="btn" data-dm="forward">3 Forward</button><button class="btn" data-dm="side">4 Sideways</button><button class="btn" data-dm="turn">5 Turn</button></div>
+      <p class="note rise">Orange disc: that rotor spins faster. Dark disc: slower.</p>
+      <div class="vt rise" style="width:330px;margin-top:20px" data-yt="R0_bD8J7d0s" data-title="How Zipline delivery works"><span>Delivery by drone<small>Zipline · 1:10 · YouTube</small></span></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 72.5 to 74</p><p><b>OPEN</b> The five buttons, or keys 1 to 5. Optional: the Zipline tile (1:10, YouTube).</p><p><b>SAY</b> "Aviation students: six degrees of freedom, four motors. So it cannot move sideways without rolling." Click Forward. "Which rotors went orange?" Expected answer: the two at the back. Click Turn. "And to turn on the spot?" Expected answer: one diagonal pair speeds up. Those two spin the same way, so their reaction turns the body. "The same idea drives 500,000 driverless taxi rides a week: sense, think, act, at 100 km/h."</p><p><b>DO</b> Click Climb, Forward, Sideways, Turn. Each one returns to Hover by itself except Turn: press Hover to stop it.</p></aside>
+  </section>
+
+  <!-- ============ PART 7 ============ -->
+  <section class="slide opener" id="s-p7" data-view="evo" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="74 to 74.5">
+    <div class="col" style="top:170px">
+      <p class="n rise">7</p>
+      <h2 class="rise">Industry 5.0,<br>and you</h2>
+      <p class="lead rise">People back at the centre.</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 74 to 74.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Last stop. If the robots learn, what is left for us?"</p><p><b>DO</b> Move on.</p></aside>
+  </section>
+
+  <section class="slide" id="s-i5" data-view="cobotDim" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="74.5 to 76.5">
+    <p class="kicker rise">European Commission, January 2021</p>
+    <h2 class="rise">Industry 5.0 gives the technology a purpose</h2>
+    <div class="g3">
+      <div class="card rise"><h3 class="or">Human-centric</h3><p>Design the work around people. Robots take the dull, dirty and dangerous tasks.</p></div>
+      <div class="card rise"><h3 class="gr">Sustainable</h3><p>Less energy and material, more reuse, less waste over the whole life of a product.</p></div>
+      <div class="card rise"><h3 class="cy">Resilient</h3><p>Survive a shock, such as a pandemic or a broken supply chain, and switch products fast.</p></div>
+    </div>
+    <div class="flow rise" style="margin-top:30px">
+      <div class="card"><b class="y">Until now</b><h3>Mass production</h3><p>The same product for everyone, as cheap as possible.</p></div><div class="arr">›</div>
+      <div class="card" style="border-color:var(--or)"><b class="y">Next</b><h3>Mass personalisation</h3><p>A product made for one person, at the price of mass production.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 74.5 to 76.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Industry 5.0 is not a new machine. In January 2021 the European Commission said that Industry 4.0 measured only output and cost, and added three goals." Read the three. "And one change in what factories make: from mass production to mass personalisation. Your shoe, your size, your colours, one pair, at the price of a standard pair. Only flexible robots working next to people make that possible."</p><p><b>DO</b> Ask for one product the students already order personalised (phone cases, trainers, glasses).</p></aside>
+  </section>
+
+  <section class="slide" id="s-vsie" data-view="heroDim" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="76.5 to 78.5">
+    <div class="vhead"><span>A vision of the factory to come</span><small>Siemens · The Autonomous Factory of the Future · 5:08 · play two minutes</small></div>
+    <div class="vid big" data-main data-src="videos/siemens-autonomous-factory.mp4" data-title="The Autonomous Factory of the Future" data-len="5:08" data-cred="Siemens"></div>
+    <aside class="notes"><p class="t">Minute 76.5 to 78.5</p><p><b>OPEN</b> The film (your own copy: Siemens, The Autonomous Factory of the Future, 5:08). Play about two minutes.</p><p><b>SAY</b> Before: "A company's vision film. One order for one product enters the factory. Count the people." After: "Where were the people?" Expected answer: almost none on the floor. They design, supervise and repair. "That is the question for the last ten minutes."</p><p><b>DO</b> Press next to play. Stop after about two minutes.</p></aside>
+  </section>
+
+  <section class="slide" id="s-jobs" data-view="cobotDim" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="78.5 to 80.5">
+    <p class="kicker rise">World Economic Forum, Future of Jobs Report 2025</p>
+    <h2 class="rise">Jobs to 2030</h2>
+    <div class="g4" style="width:1500px">
+      <div class="card tile rise"><b class="gr"><em data-to="170" data-pre="+">+170</em> <i style="color:inherit">m</i></b><span>new jobs created</span></div>
+      <div class="card tile rise"><b class="rd"><em data-to="92" data-pre="−">−92</em> <i style="color:inherit">m</i></b><span>jobs displaced</span></div>
+      <div class="card tile rise"><b><em data-to="78" data-pre="+">+78</em> <i>m</i></b><span>net new jobs</span></div>
+      <div class="card tile rise"><b data-to="39" data-suf="%">39%</b><span>of the skills used at work today will change</span></div>
+    </div>
+    <h3 class="rise" style="margin:34px 0 14px">The skills growing fastest</h3>
+    <div class="chips rise"><span class="chip" style="border-color:var(--or)">1 · AI and big data</span><span class="chip" style="border-color:var(--or)">2 · Networks and cybersecurity</span><span class="chip" style="border-color:var(--or)">3 · Technological literacy</span><span class="chip">Creative thinking</span><span class="chip">Resilience, flexibility and agility</span><span class="chip">Curiosity and lifelong learning</span></div>
+    <p class="src">Source: World Economic Forum, Future of Jobs Report 2025, published January 2025.</p>
+    <aside class="notes"><p class="t">Minute 78.5 to 80.5</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Employers who together employ 14 million people told the World Economic Forum what they expect. More jobs appear than disappear, but they are different jobs. Four skills in ten will change before 2030." Point at the chips. "The first three are taught in this building. The last three you have to bring yourself." Ask: "Which jobs are in the minus 92 million?" Expected answer: clerical and routine work, the dull tasks again.</p><p><b>DO</b> Read the three orange chips aloud. Note for you: this replaces the 2023 list in the earlier talk. The next report is due in January 2027.</p></aside>
+  </section>
+
+  <section class="slide" id="s-you" data-view="heroDim" data-steps="4" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="80.5 to 83.5">
+    <p class="kicker rise">Where you fit in</p>
+    <h2 class="rise" style="margin-bottom:22px">One robot needs all of you</h2>
+    <div class="who">
+      <div class="card" data-st="1"><h3 class="cy">Computer Science</h3><p>Perception, planning and learning are software. The model that turned "I am thirsty" into a motion is your field.</p></div>
+      <div class="card" data-st="2"><h3 class="am">Aviation Engineering</h3><p>A drone is a robot aircraft. Aerodynamics, control and navigation are the same subjects, with the pilot moved into the software.</p></div>
+      <div class="card" data-st="3"><h3 class="gr">Computer Engineering and Electronics</h3><p>Every robot is motors, sensors, circuits and embedded computers, built to work together in real time.</p></div>
+      <div class="card" data-st="4" style="border-color:var(--or)"><h3 class="or">Robotics</h3><p>For you, all of this is the bread and butter of every morning.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 80.5 to 83.5</p><p><b>OPEN</b> Nothing. Four clicks, one programme each.</p><p><b>SAY</b> Before each click ask who is in that programme, and ask one of them: "Which part of today's robots would you build?" Then click and compare. Computer Science: the vision and the planning. Aviation: the drone and its autopilot. Computer Engineering: the boards inside every joint. Robotics: "You put it all together."</p><p><b>DO</b> Four clicks. Get at least one student answer per programme before each click.</p></aside>
+  </section>
+
+  <section class="slide" id="s-tsi" data-view="heroDim" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="83.5 to 85">
+    <div class="col" style="width:900px">
+      <p class="kicker rise">Here, in this building</p>
+      <h2 class="rise">Robotics at TSI</h2>
+      <div class="facts rise" style="margin-bottom:22px"><div class="fact"><b style="min-width:150px" data-to="25">25</b><span>different robots in <b>20</b> laboratories</span></div></div>
+      <ul class="rise">
+        <li>Laboratories for industrial robots, mobile robots, industrial automation, and designing and prototyping</li>
+        <li>Bachelor: <b>Robotics</b></li>
+        <li>Master: <b>Smart Electronic Systems and Robotics</b></li>
+        <li>Master: <b>Robotics and Artificial Intelligence</b>, a double degree with UWE Bristol</li>
+      </ul>
+    </div>
+    <div class="ph rise" style="left:1090px;top:170px;width:710px;height:470px"><img src="assets/img/robot-lab.jpg" alt=""><span>Laboratory of industrial robots, TSI</span></div>
+    <div class="ph rise" style="left:1360px;top:670px;width:440px;height:300px"><img src="assets/img/nao.jpg" alt=""></div>
+    <aside class="notes"><p class="t">Minute 83.5 to 85</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "Everything you saw today as a model stands here as a machine: industrial arms, cobots, mobile robots. You can use them from your first year." Name the laboratory and the room where their own practical classes take place.</p><p><b>DO</b> Tell the students how to book lab time or join a student project. The figures (25 robots, 20 laboratories) and the programme names are from tsi.lv, read on 18 November 2026.</p></aside>
+  </section>
+
+  <section class="slide" id="s-quiz" data-view="heroDim" data-sec="7 · Industry 5.0 and you" data-part="7" data-t="85 to 88">
+    <p class="kicker rise">Before you go</p>
+    <h2 class="rise" style="margin-bottom:20px">Five questions</h2>
+    <div class="qz" style="max-width:1560px">
+      <div class="card rise"><p>1. Where is the program of the writing doll stored?</p><p>In the shape of its cams.</p></div>
+      <div class="card rise"><p>2. Watt's governor does three things. Which?</p><p>It measures the speed, compares it with the target and corrects the steam: feedback.</p></div>
+      <div class="card rise"><p>3. A chatbot is not a robot. Which word of the definition fails?</p><p>"Actuated mechanism": it has no body.</p></div>
+      <div class="card rise"><p>4. China installs 59% of the world's new robots but is 19th in robot density. Why?</p><p>Density divides by the number of factory workers, and China has very many.</p></div>
+      <div class="card rise"><p>5. About 7,000 humanoids and 603,000 industrial robots were sold in 2025. What does that tell you?</p><p>Humanoids are at the very start. Today's robot work is still done by arms.</p></div>
+    </div>
+    <aside class="notes"><p class="t">Minute 85 to 88</p><p><b>OPEN</b> Nothing. Click a question to show its answer.</p><p><b>SAY</b> Read each question, take one answer from the room, then click the card. Thirty seconds each.</p><p><b>DO</b> Click the five cards one by one. If time is short, do questions 1, 3 and 5.</p></aside>
+  </section>
+
+  <section class="slide" id="s-end" data-view="evo" data-sec="Questions" data-part="8" data-t="88 to 90">
+    <div class="col" style="width:900px;top:200px">
+      <p class="kicker rise">Peg, cam, card, program, model</p>
+      <h1 class="rise" style="font-size:118px">Thank you</h1>
+      <p class="lead rise" style="color:var(--am);font-weight:700">Paldies! · ¡Muchas gracias!</p>
+      <p class="lead rise" style="margin-top:36px">Your questions.</p>
+      <p class="by rise"><b>Prof. Emmanuel A. Merchán-Cruz</b><br>Transport and Telecommunication Institute, Riga · tsi.lv</p>
+    </div>
+    <aside class="notes"><p class="t">Minute 88 to 90</p><p><b>OPEN</b> Nothing.</p><p><b>SAY</b> "We started with a doll that writes one sentence for ever. We end with a machine you can ask for a drink. The question is the same as in 1774: who decides what the machine does? For the next forty years, that is you."</p><p><b>DO</b> Take questions. Press O for the overview if someone asks to see a slide again. The robot turns on one leg. Ask the room which way. People disagree, and both answers are right: every point is drawn with the same size and brightness, so nothing says which side of the robot is in front. Stare at it, or blink, and the turn flips. Key 2 adds depth and fixes one direction, key 3 fixes the other, key 1 takes the depth away again. Key 4 swaps the robot for a ball of beads, key 5 brings the robot back.</p></aside>
+  </section>
+
+  <div id="sec"></div><div id="num"></div>
+</div>
+<div id="fade"></div>
+<div id="segs"></div>
+<div id="jump"></div>
+<div id="ov"><span class="x">Esc closes</span></div>
+<div id="grid"></div>
+<div id="inl"></div>
+<div id="help">Arrows or clicker: next · F full screen · n notes window · O overview · K pause video · X glow on or off · drag to look around</div>
+
+<script src="assets/three.min.js"></script>
+<script src="assets/land.js"></script>
+<script src="js/core.js"></script>
+<script src="js/robots.js"></script>
+<script src="js/sets-a.js"></script>
+<script src="js/sets-b.js"></script>
+<script src="js/fx.js"></script>
+<script>
+(function(){var $=RX.$,$$=RX.$$;
+/* second vote: one verdict per click */
+RX.hooks['s-verdict']={step:function(k,s){$$('.pc',s).forEach(function(c,i){c.classList.toggle('rev',i<k);});}};
+/* nine pillars: number keys open a film */
+RX.hooks['s-end']={key:function(k){if(k==='1'||k==='2'||k==='3'){RX.evo.cue(k==='1'?0:(k==='2'?1:-1));return true;}if(k==='4'||k==='5'){RX.evo.to(k==='4'?'orb':'spin',1.6);return true;}}};
+RX.hooks['s-r4']={key:function(k){var t=$$('#s-r4 .vt')[+k-1];if(t){t.click();return true;}}};
+/* Jacquard cards */
+var W=10,H=8,cells=[],cloth=[],grid=$('#jq-grid'),cl=$('#jq-cloth'),bits=$('#jq-bits');
+var PAT={heart:['0110001100','1111011110','1111111110','1111111110','0111111100','0011111000','0001110000','0000100000'],
+  tsi:['0000000000','1110101110','0100101000','0100101110','0100100010','0100101110','0000000000','0000000000'],
+  diamond:['0000110000','0001111000','0011111100','0111111110','0111111110','0011111100','0001111000','0000110000'],clear:[]};
+function paint(){for(var i=0;i<W*H;i++){cells[i].el.classList.toggle('h',cells[i].on);cloth[i].classList.toggle('h',cells[i].on);}var b='';for(var c=0;c<W;c++)b+=cells[c].on?'1':'0';bits.textContent=b;}
+for(var i=0;i<W*H;i++){(function(i){var e=document.createElement('i');grid.appendChild(e);var o={el:e,on:false};cells.push(o);e.addEventListener('click',function(){o.on=!o.on;paint();});var c=document.createElement('i');cl.appendChild(c);cloth.push(c);})(i);}
+function load(n){var p=PAT[n];for(var r=0;r<H;r++)for(var c=0;c<W;c++)cells[r*W+c].on=!!(p[r]&&p[r][c]==='1');paint();}
+$$('#s-jq .btn[data-jq]').forEach(function(b){b.addEventListener('click',function(){load(b.dataset.jq);});});
+RX.jq={load:load,cells:cells};load('diamond');
+RX.start();
+})();
+</script>
+</body>
+</html>
